@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css" integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title><%= title %></title>
+</head>
+    <style>
+        .form-container{
+            margin: 3rem 27rem;
+            width: 30%;
+        }
+    </style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a href="/" class="navbar-brand">
+                <!-- <i class="fas fa-code me-2"></i> -->
+            </a>
+            <button class="navbar-toggler" data-bs-target="#my-nav" 
+              data-bs-toggler="collapse" aria-controls="my-nav" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="my-nav" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item active">
+                        <a href="/" class="nav-link">
+                            <i class="fas fa-home me-1"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="/add" class="nav-link">
+                            <i class="fas fa-user-plus me-1"></i>
+                            Add User
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="/" class="nav-link">
+                            <i class="fas fa-globe me-1"></i>
+                            About
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="/" class="nav-link">
+                            <i class="fas fa-envelope me-1"></i>
+                            contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h3>Edit <%= user.name %></h3>
+
+    <div class="form-container">
+        <form action="/update/<%= user._id %>" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" name="name" value="<%= user.name %>" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="text" name="email" value="<%= user.email %>" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Phone No</label>
+              <input type="text" name="phone" value="<%= user.phone %>" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Image</label>
+              <input type="file" name="image"  class="form-control">
+              <img src="/<%= user.image %>" width="100" class="img-thumbnail mt-1" alt="">
+            </div>
+            <br>
+            <input type="hidden" name="old_image" value="<%= user.image %>">
+            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js" integrity="sha512-9GacT4119eY3AcosfWtHMsT5JyZudrexyEVzTBWV3viP/YfB9e2pEy3N7WXL3SV6ASXpTU0vzzSxsbfsuUH4sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
